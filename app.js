@@ -17,7 +17,21 @@ form.addEventListener(`submit`, q => {
 })
 
 const darkMode = document.querySelector(`#dm`);
-darkMode.addEventListener(`submit`, () => {
-    const all = document.querySelector(`*`);
-    all.classList.toggle(`dark-mode`);
+darkMode.addEventListener(`click`, () => {
+    for (element of document.querySelectorAll('*')){
+        elements.classlist.toggle('dark-mode');
+    }
 });
+
+const reality = document.querySelector(`#reality`);
+let i = 1;
+function realityJump(){
+    if (i < 3){
+        alert(`You have successfully moved to another reality`);
+        i++;
+    } else {
+        alert(`OH NO! You can only move to a new other reality a couple times. You are stuck in this reality!`);
+        reality.removeEventListener(`click`, realityJump);
+    }
+}
+reality.addEventListener(`click`, realityJump);
